@@ -10,15 +10,12 @@ services:
       - NODE_ENV=production
       - MONGO_URI=${STUDENTCLUB_MONGO_URI}
       - MONGO_USER=${STUDENTCLUB_MONGO_USERNAME}
-      - MONGO_PASS=${STUDENTCLUB_MONGO_PASSWORD} 
+      - MONGO_PASS=${STUDENTCLUB_MONGO_PASSWORD}
       - MONGO_DB=${STUDENTCLUB_MONGO_DATABASE}
       - SECRET=${SECRET}
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
       - /home/${LINUX_USERNAME}/studentcluub-api-prod/clubs:/clubs
-    ports:
-      - 80:80
-      - 443:443
     networks:
       - application-tier
 
