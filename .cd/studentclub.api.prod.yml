@@ -1,9 +1,9 @@
 version: "3.2"
 
 services:
-  studentclub.api.prod:
+  studentclub-api-prod:
     image: registry.gitlab.com/vasin.me/vasin-studentclub-api/production:latest
-    container_name: studentclub.api.prod
+    container_name: studentclub-api-prod
     restart: always
     ports:
       - 3000
@@ -15,7 +15,7 @@ services:
       - MONGO_DB=${STUDENTCLUB_MONGO_DATABASE}
       - SECRET=${SECRET}
     volumes:
-      - /home/${LINUX_USERNAME}/studentcluub-api-prod/clubs:/clubs
+      - /home/${LINUX_USERNAME}/studentclub-api-prod/clubs:/clubs
     networks:
       - application-tier
 

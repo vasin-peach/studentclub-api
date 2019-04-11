@@ -5,5 +5,5 @@ module.exports = {
   MONGO_USER: process.env.MONGO_USER,
   MONGO_PASS: process.env.MONGO_PASS,
   MONGO_DB: process.env.MONGO_DB,
-  port: process.env.PORT || 3000
+  PORT: process.env.PORT || 3000
 };
