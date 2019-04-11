@@ -7,7 +7,7 @@ stages:
 variables:
   DOCKER_DRIVER: overlay2
   DOCKER_IMAGE_NAME: registry.gitlab.com/$CI_PROJECT_PATH
-  DOCKER_IMAGE_URI: registry.gitlab.com/vasin.me/vasin-studentclub-api:latest
+  DOCKER_IMAGE_URI: registry.gitlab.com/vasin.me/vasin-studentclub-api/production:latest
 
 # Login Registry
 before_script:
