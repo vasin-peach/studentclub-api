@@ -5,7 +5,8 @@ services:
     image: registry.gitlab.com/vasin.me/vasin-studentclub-api:latest
     container_name: studentclub.api.prod
     restart: always
-    ports: 3000
+    ports:
+      - 3000
     environment:
       - NODE_ENV=production
       - MONGO_URI=${STUDENTCLUB_MONGO_URI}
