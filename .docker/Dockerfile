@@ -1,5 +1,5 @@
 # Runner build
-FROM node:9-alpine
+FROM node:8-alpine
 
 WORKDIR /home/studentclub-api.prod/
 RUN mkdir /clubs

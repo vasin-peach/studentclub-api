@@ -29,7 +29,7 @@ build-image:
 
 # Deploy Production
 deploy-production:
-  image: $DOCKER_IMAGE_NAME/production:latest
+  image: docker:stable
   stage: deploy
   tags:
     - deploy
