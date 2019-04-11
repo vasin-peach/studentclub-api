@@ -14,7 +14,6 @@ services:
       - MONGO_DB=${STUDENTCLUB_MONGO_DATABASE}
       - SECRET=${SECRET}
     volumes:
-      - /var/run/docker.sock:/tmp/docker.sock:ro
       - /home/${LINUX_USERNAME}/studentcluub-api-prod/clubs:/clubs
     networks:
       - application-tier
