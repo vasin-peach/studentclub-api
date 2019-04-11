@@ -1,0 +1,27 @@
+# Step
+stages:
+  - build
+  - deploy
+
+# Default variable
+variables:
+  DOCKER_DRIVER: overlay2
+  DOCKER_IMAGE_NAME: registry.gitlab.com/$CI_PROJECT_PATH
+
+# Login Registry
+before_script:
+  - "docker login -u $GITLAB_USERNAME -p $GITLAB_TOKEN registry.gitlab.com"
+
+# Build Image
+build-image:
+  stage: build
+  image: docker:stable
+  services:
+    - docker:dind
+  script:
+    - "docker build --pull --no-cache -t $DOCKER_IMAGE_NAME ."
+    - "docker push $DOCKER_IMAGE_NAME"
+  after_script:
+    - "docker rmi $(docker images -qa -f 'dangling=true')"
+  only:
+    - master
