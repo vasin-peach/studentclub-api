@@ -8,6 +8,8 @@ services:
     ports:
       - 3000
     environment:
+      - VIRTUAL_HOST=api.studentclub.vasin.me
+      - VIRTUAL_PORT=3000
       - NODE_ENV=production
       - MONGO_URI=${STUDENTCLUB_MONGO_URI}
       - MONGO_USER=${STUDENTCLUB_MONGO_USERNAME}
