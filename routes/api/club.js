@@ -44,14 +44,14 @@ router.post("/add", function (req, res, next) {
               .replace(/^data:image\/jpeg;base64,/, "")
               .replace(/^data:image\/gif;base64,/, "");
             binaryData = new Buffer(base64Data, "base64").toString("binary");
+
+            // filename
             var fileName =
-              "/clubs/" +
-              Date.now() +
-              "." +
-              req.body.img
-              .split(",")[0]
-              .split(";")[0]
-              .split("/")[1];
+              process.env.NODE_ENV == "production" ?
+              `/clubs/${Date.now()}.${req.body.img.split(",")[0].split(";")[0].split("/")[1]}` :
+              `../vasin-studentclub-front/static/clubs/${Date.now()}.${req.body.img.split(",")[0].split(";")[0].split("/")[1]}`
+
+            // upload
             fs.writeFile(fileName, binaryData, "binary", function (
               err,
               response
@@ -243,7 +243,12 @@ router.post("/remove", function (req, res, next) {
     function removeImage(filename) {
       return new Promise((resolve, reject) => {
         //dev var path = "../studentclub-nbr/static/clubs/" + filename;
-        var path = "/clubs/" + filename;
+        // var path = "/clubs/" + filename;
+        var path = process.env.NODE_ENV == "production" ?
+          `/clubs/${filename}` :
+          `../vasin-studentclub-front/static/clubs/${filename}`
+
+
         fs.unlink(path, function (err, response) {
           if (!err) {
             return resolve(response);
