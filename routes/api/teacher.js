@@ -54,7 +54,11 @@ router.post('/user/club', function (req, res) {
 // Get all user
 router.post("/user/all", function (req, res) {
   // find all user
-  User.find({}, function (err, users) {
+  User.find({
+    permission: {
+      $lt: 3
+    }
+  }, function (err, users) {
     if (err) {
       // return error
       return next(err);
