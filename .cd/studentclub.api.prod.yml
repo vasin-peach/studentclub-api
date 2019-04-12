@@ -17,7 +17,7 @@ services:
       - MONGO_DB=${STUDENTCLUB_MONGO_DATABASE}
       - SECRET=${SECRET}
     volumes:
-      - /home/${LINUX_USERNAME}/studentclub-api-prod/clubs:/clubs
+      - /home/${LINUX_USERNAME}/api.studnetclub.vasin.me/clubs:/clubs
     networks:
       - application-tier
 
